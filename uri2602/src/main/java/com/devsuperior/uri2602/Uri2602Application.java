@@ -25,10 +25,18 @@ public class Uri2602Application implements CommandLineRunner {
 	public void run(String... args) {
 
 		List<CustomerMinProjection> list = repository.searchWithSQL("RS");
-		List<CustomerMinDTO> result = list.stream().map(x -> new CustomerMinDTO(x)).collect(Collectors.toList());
+		List<CustomerMinDTO> result1 = list.stream().map(x -> new CustomerMinDTO(x)).collect(Collectors.toList());
 
-		System.out.println("\nLISTA DE CUSTOMERS NO ESTADO 'RS': \n");
-		for (CustomerMinDTO obj : result) {
+		System.out.println("\nLISTA DE CUSTOMERS NO ESTADO 'RS' COM SQL RAIZ: ");
+		for (CustomerMinDTO obj : result1) {
+			System.out.println(obj);
+		}
+		System.out.println();
+
+		List<CustomerMinDTO> result2 = repository.searchWithJPQL("RS");
+
+		System.out.println("\nLISTA DE CUSTOMERS NO ESTADO 'RS' COM JPQL: ");
+		for (CustomerMinDTO obj : result2) {
 			System.out.println(obj);
 		}
 	}
