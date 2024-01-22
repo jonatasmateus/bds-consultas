@@ -43,7 +43,7 @@ VALUES
   ('586733922290', 2020),
   ('049382234322', 2020);
 
-INSERT INTO projetos (pnumero, pnome, dnumero)
+INSERT INTO projetos (pnumero, pnome, d[numero)
 VALUES 
   (2010, 'Alpha', 1010),
   (2020, 'Beta', 1020);
